@@ -3,26 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item
-        android:id="@+id/home"
-        android:title="Home"
-        android:icon="@drawable/home"/>
-    <item
-        android:id="@+id/operation"
-        android:title="How to operate"
-        android:icon="@drawable/operate"/>
-    <item
-        android:id="@+id/aboutus"
-        android:title="About Us"
-        android:icon="@drawable/aboutus"/>
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/home"
+            android:title="Home"
+            android:checked="true"
+            android:icon="@drawable/home"/>
+        <item
+            android:id="@+id/operation"
+            android:title="How to operate"
+            android:icon="@drawable/operate"/>
+        <item
+            android:id="@+id/aboutus"
+            android:title="About Us"
+            android:icon="@drawable/aboutus"/>
+
+    </group>
+
 
     <item android:title="Profile">
 
         <menu>
-            <item
-                android:id="@+id/logout"
-                android:title="Logout"
-                android:icon="@drawable/logout"/>
+
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/logout"
+                    android:title="Logout"
+                    android:icon="@drawable/logout"/>
+
+            </group>
+
         </menu>
 
     </item>
@@ -30,17 +42,19 @@
     <item android:title="Communicate With Us">
 
         <menu>
+            <group android:checkableBehavior="single">
 
-            <item
-                android:id="@+id/feedback"
-                android:title="Write your feedback"
-                android:icon="@drawable/feedback"/>
+                <item
+                    android:id="@+id/feedback"
+                    android:title="Write your feedback"
+                    android:icon="@drawable/feedback"/>
 
-            <item
-                android:id="@+id/contactus"
-                android:title="Contact Us"
-                android:icon="@drawable/contactus"/>
+                <item
+                    android:id="@+id/contactus"
+                    android:title="Contact Us"
+                    android:icon="@drawable/contactus"/>
 
+            </group>
         </menu>
 
     </item>

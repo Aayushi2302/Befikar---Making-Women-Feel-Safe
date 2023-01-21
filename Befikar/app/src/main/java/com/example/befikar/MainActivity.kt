@@ -9,6 +9,7 @@ import java.util.*
 import kotlin.concurrent.timerTask
 
 class MainActivity : AppCompatActivity() {
+
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         if(!isDestroyed){
 
-            val intent = Intent(this,MainActivity2::class.java)
+            val intent = Intent(this,Home::class.java)
             val tmtask = timerTask{
                 if(!isDestroyed){
                     startActivity(intent)
