@@ -32,103 +32,197 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/frameLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/appBarLayout"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rootView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rootView"
             app:layout_constraintTop_toBottomOf="@id/appBarLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <LinearLayout
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/helplineCard1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="@color/cardView1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Women Helpline Number"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="10dp"
+                        android:background="#00FFFFFF"
+                        android:src="@drawable/call" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/helplineCard2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="@color/cardView2"
+                app:layout_constraintBottom_toTopOf="@id/mainTask1"
+                app:layout_constraintTop_toBottomOf="@id/helplineCard1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Emergency Helpline"
+                        android:textStyle="bold"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="20sp"/>
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="60dp"
+                        android:src="@drawable/call"
+                        android:background="#00FFFFFF"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mainTask1"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@color/cardView1"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/rootView">
+                app:layout_constraintTop_toBottomOf="@id/helplineCard2"
+                app:layout_constraintBottom_toTopOf="@id/mainTask2">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/helplineCard1"
-                    app:cardBackgroundColor="@color/cardView1"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="55dp">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:gravity="center_vertical"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:textColor="#003049"
+                        android:layout_marginStart="15dp"
+                        android:text="Add Emergency\nContacts"
+                        android:textSize="25sp"
+                        android:textStyle="bold"/>
 
-                        <TextView
-                            android:textColor="@color/black"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Women Helpline Number"
-                            android:textSize="25sp"
-                            android:layout_marginStart="10dp"
-                            android:textStyle="bold"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/addcontacts"/>
 
-                        <ImageButton
-                            android:id="@+id/helplineNumber1"
-                            android:background="#00FFFFFF"
-                            android:layout_marginStart="20dp"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/call"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mainTask2"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@color/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mainTask1"
+                app:layout_constraintBottom_toTopOf="@id/mainTask3">
 
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/helplineCard2"
-                    app:cardBackgroundColor="@color/cardView2"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:gravity="center_vertical"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:textColor="#003049"
+                        android:layout_marginStart="15dp"
+                        android:text="Share Your Current\nLocation"
+                        android:textSize="25sp"
+                        android:textStyle="bold"/>
 
-                        <TextView
-                            android:textColor="@color/black"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Emergency Helpline"
-                            android:textSize="25sp"
-                            android:layout_marginStart="10dp"
-                            android:textStyle="bold"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/instanthelp"/>
 
-                        <ImageButton
-                            android:id="@+id/helplineNumber2"
-                            android:background="#00FFFFFF"
-                            android:layout_marginStart="75dp"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:src="@drawable/call"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mainTask3"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@color/cardView1"
+                app:layout_constraintTop_toBottomOf="@id/mainTask2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-                </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#003049"
+                        android:layout_marginStart="15dp"
+                        android:text="Educate Yourself \nAbout Self Defense"
+                        android:textSize="25sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/education"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
