@@ -11,4 +11,5 @@
     <color name="grey">#6c757d</color>
     <color name="cardView1">#a8dfda</color>
     <color name="cardView2">#6fc8c2</color>
+    <color name="red">#FF5757</color>
 </resources>

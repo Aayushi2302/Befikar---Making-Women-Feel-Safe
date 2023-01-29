@@ -13,11 +13,22 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
 
 class Home : AppCompatActivity() {
 
+    private var db = Firebase.firestore
     lateinit var toggle : ActionBarDrawerToggle
+
+
+    //to fetch details from firestore
+    val userId = FirebaseAuth.getInstance().currentUser!!.uid
+    val ref = db.collection("user").document(userId)
+    ref.get().ad
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

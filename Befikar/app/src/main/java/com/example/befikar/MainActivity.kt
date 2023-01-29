@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         if(!isDestroyed){
 
-            val intent = Intent(this,Home::class.java)
+            val intent = Intent(this,LoginActivity::class.java)
             val tmtask = timerTask{
                 if(!isDestroyed){
                     startActivity(intent)

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "135439398796",
+    "project_id": "befikar-14f61",
+    "storage_bucket": "befikar-14f61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135439398796:android:b8ea634f8145ff18c088a9",
+        "android_client_info": {
+          "package_name": "com.example.befikar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135439398796-ipcsanko24l2d1hu6avh65067ri88gn3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.befikar",
+            "certificate_hash": "39c7f9d65b92e19179f382e039b4e6999ddaf6e4"
+          }
+        },
+        {
+          "client_id": "135439398796-5lr0b9hiog3rqilg2o0m0squjh24dgcg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnbSA3Kwpc2AlPESdbqflqBE-x2Id1k00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135439398796-5lr0b9hiog3rqilg2o0m0squjh24dgcg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
