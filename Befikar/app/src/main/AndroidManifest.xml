@@ -23,22 +23,6 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ContactUs"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".WriteFeedback"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".AboutUs"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".HowToOperate"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Home"
             android:exported="false"
             android:screenOrientation="portrait" />
