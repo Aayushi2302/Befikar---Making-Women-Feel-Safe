@@ -1,10 +1,13 @@
 package com.example.befikar
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.cardview.widget.CardView
@@ -14,21 +17,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
 
 class Home : AppCompatActivity() {
 
-    private var db = Firebase.firestore
     lateinit var toggle : ActionBarDrawerToggle
-
-
-    //to fetch details from firestore
-    val userId = FirebaseAuth.getInstance().currentUser!!.uid
-    val ref = db.collection("user").document(userId)
-    ref.get().ad
-
+    private var db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +34,26 @@ class Home : AppCompatActivity() {
         setUpViews()
         callHelpline1()
         callHelpline2()
+
+        val userId = FirebaseAuth.getInstance().currentUser!!.uid
+        val ref = db.collection("user").document(userId)
+
+        ref.get().addOnSuccessListener {
+            if(it!=null){
+                val name = it.data?.get("name")?.toString()
+                val email = it.data?.get("email")?.toString()
+
+                val userName : TextView = findViewById(R.id.userName)
+                val userEmail : TextView = findViewById(R.id.userMail)
+                userName.text = name
+                userEmail.text = email
+
+            }
+        }
+            .addOnFailureListener {
+                Toast.makeText(this,"Failed to fetch data",Toast.LENGTH_SHORT).show()
+            }
+
     }
 
     private fun setUpViews(){
@@ -62,13 +79,16 @@ class Home : AppCompatActivity() {
                 }
                 R.id.operation ->  replaceFragment(OperationFragment())
                 R.id.aboutus -> replaceFragment(AboutFragment())
-                R.id.logout -> Toast.makeText(applicationContext,"Clicked Logout",Toast.LENGTH_SHORT).show()
+                R.id.logout -> {
+                    FirebaseAuth.getInstance().signOut()
+                    val intent = Intent(this,LoginActivity::class.java)
+                    startActivity(intent)
+                }
                 R.id.feedback -> replaceFragment(FeedbackFragment())
                 R.id.contactus -> replaceFragment(ContactFragment())
             }
             true
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

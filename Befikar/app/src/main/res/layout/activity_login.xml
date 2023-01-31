@@ -25,7 +25,7 @@
         android:ems="10"
         android:fontFamily="@font/source_sans_pro_semibold"
         android:hint="Enter Email"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColor="@color/red"
         android:textColorHint="@color/grey"

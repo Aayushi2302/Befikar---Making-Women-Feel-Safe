@@ -30,7 +30,7 @@ class RegisterActivity : AppCompatActivity() {
             val name = inputUsername.text.toString()
             val pwd = inputPassword.text.toString()
             val phone = inputPhone.text.toString()
-            val email = inputEmail.text.toString().trim()
+            val email = inputEmail.text.toString()
 
             if(email.isNotEmpty() && name.isNotEmpty() && pwd.isNotEmpty() && phone.isNotEmpty())
             {
@@ -45,7 +45,8 @@ class RegisterActivity : AppCompatActivity() {
                             "password" to pwd
                             )
 
-                        db.collection("user").document().set(userMap)
+                        val uid = firebaseAuth.currentUser?.uid.toString()
+                        db.collection("user").document(uid).set(userMap)
                             .addOnSuccessListener {
                                 Toast.makeText(this,"Sucessfully data added!!",Toast.LENGTH_SHORT).show()
                             }
