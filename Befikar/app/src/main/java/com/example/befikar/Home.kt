@@ -1,11 +1,9 @@
 package com.example.befikar
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
@@ -17,7 +15,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
@@ -34,6 +31,7 @@ class Home : AppCompatActivity() {
         setUpViews()
         callHelpline1()
         callHelpline2()
+        callMainTask1()
 
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
         val ref = db.collection("user").document(userId)
@@ -53,6 +51,7 @@ class Home : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this,"Failed to fetch data",Toast.LENGTH_SHORT).show()
             }
+
 
     }
 
@@ -128,5 +127,14 @@ class Home : AppCompatActivity() {
         val fragmentTransaction : FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout,fragment)
         fragmentTransaction.commit()
+    }
+
+    private fun callMainTask1(){
+
+        val mainTask1 : CardView = findViewById(R.id.mainTask1)
+        mainTask1.setOnClickListener {
+            val intent = Intent(applicationContext,MainTask1::class.java)
+            startActivity(intent)
+        }
     }
 }
