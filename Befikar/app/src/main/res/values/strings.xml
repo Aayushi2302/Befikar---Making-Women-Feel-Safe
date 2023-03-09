@@ -4,7 +4,7 @@
     <string name="close">Close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-<<<<<<< Updated upstream
+
     <string name="text1">It doesnt matter how big or heavy your attacker is because you can beat anyone if you know where the most vulnerable spots are. The main ones are the eyes, nose, throat, chest, knees, and groin.</string>
     <string name="text2">Grab his little finger and his ring finger with one hand, and his middle and index finger with the other and bend the wrist forward.\nIf you cant grab your opponent hand, hit him with a fist or with a finger between the collarbones or into his Adam apple.</string>
     <string name="text3">The most obvious area for an attack is the groin. All self-defense courses advise aiming for this area.Hitting this area will literally paralyze the attacker and you will have just enough time to escape.</string>
@@ -20,10 +20,9 @@
     <string name="text26">Nothing spooks an assualter more than a deafening, loud, whistle that can attract attention to his act. Whistles can be as small as a thumb and must be carried by all women.</string>
 
     <string name="about_intro">Befikar App aims to provide a befikar attitude for women and their closed one making women self conscious about their own safety where in any situation where she feels its not safe around her emergency contacts will get notified with her location at that moment itself.</string>
-=======
+
     <string name="enable_gps">Enable GPS</string>
     <string name="required_for_this_app">Required for this app</string>
     <string name="enable_now">Enable Now</string>
     <string name="permission_not_granted">Location or SMS Permission not granted</string>
->>>>>>> Stashed changes
 </resources>

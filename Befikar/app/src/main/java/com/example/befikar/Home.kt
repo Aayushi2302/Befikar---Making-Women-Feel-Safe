@@ -33,15 +33,9 @@ class Home : AppCompatActivity() {
         setUpViews()
         callHelpline1()
         callHelpline2()
-<<<<<<< Updated upstream
         callMainTask1()
-<<<<<<< Updated upstream
-=======
         callmainTask3()
->>>>>>> Stashed changes
-=======
         callMainTask2()
->>>>>>> Stashed changes
 
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
         val ref = db.collection("user").document(userId)
@@ -63,8 +57,6 @@ class Home : AppCompatActivity() {
             }
 
 
-<<<<<<< Updated upstream
-=======
     }
 
     private fun callmainTask3() {
@@ -74,7 +66,7 @@ class Home : AppCompatActivity() {
             val intent = Intent(this,MainTask3::class.java)
             startActivity(intent)
         }
->>>>>>> Stashed changes
+
     }
 
     private fun setUpViews(){
