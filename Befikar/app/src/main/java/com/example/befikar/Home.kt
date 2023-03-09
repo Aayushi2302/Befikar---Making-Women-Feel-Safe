@@ -5,6 +5,8 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -31,7 +33,11 @@ class Home : AppCompatActivity() {
         setUpViews()
         callHelpline1()
         callHelpline2()
+<<<<<<< Updated upstream
         callMainTask1()
+=======
+        callmainTask3()
+>>>>>>> Stashed changes
 
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
         val ref = db.collection("user").document(userId)
@@ -53,6 +59,18 @@ class Home : AppCompatActivity() {
             }
 
 
+<<<<<<< Updated upstream
+=======
+    }
+
+    private fun callmainTask3() {
+        val mainTask3 : CardView = findViewById(R.id.mainTask3)
+
+        mainTask3.setOnClickListener {
+            val intent = Intent(this,MainTask3::class.java)
+            startActivity(intent)
+        }
+>>>>>>> Stashed changes
     }
 
     private fun setUpViews(){
@@ -99,7 +117,7 @@ class Home : AppCompatActivity() {
 
     private fun callHelpline1(){
 
-        val cardView1 : CardView = findViewById(R.id.helplineCard1)
+        val cardView1 : Button = findViewById(R.id.helplineCard1)
         cardView1.setOnClickListener{
 
             val intent = Intent(Intent.ACTION_DIAL)
@@ -110,7 +128,7 @@ class Home : AppCompatActivity() {
 
     private fun callHelpline2(){
 
-        val cardView2 : CardView = findViewById(R.id.helplineCard2)
+        val cardView2 : Button = findViewById(R.id.helplineCard2)
         cardView2.setOnClickListener{
 
             val intent = Intent(Intent.ACTION_DIAL)
@@ -121,7 +139,7 @@ class Home : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment){
 
-        val rootView : ConstraintLayout = findViewById(R.id.rootView)
+        val rootView : LinearLayout = findViewById(R.id.rootView)
         rootView.removeAllViews()
         val fragmentManager : FragmentManager = supportFragmentManager
         val fragmentTransaction : FragmentTransaction = fragmentManager.beginTransaction()

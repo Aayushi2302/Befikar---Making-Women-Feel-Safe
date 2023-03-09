@@ -1,10 +1,15 @@
 package com.example.befikar
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_feedback.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +32,8 @@ class FeedbackFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     override fun onCreateView(
@@ -34,7 +41,36 @@ class FeedbackFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feedback, container, false)
+       val root = inflater.inflate(R.layout.fragment_feedback, container, false)
+
+        val sendButton : Button = root.findViewById(R.id.sendButton)
+
+        sendButton.setOnClickListener {
+            val recipient = "sharmaaayushi2302@gmail.com"
+            val subject = "Feedback for Befikar app"
+            val message = feedbackData.text.toString()
+
+            sendEmail(recipient,subject,message)
+        }
+        return root
+    }
+
+    private fun sendEmail(recipient: String, subject: String, message: String) {
+
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.data = Uri.parse("mailto:")
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_EMAIL,arrayOf(recipient))
+        intent.putExtra(Intent.EXTRA_SUBJECT,subject)
+        intent.putExtra(Intent.EXTRA_TEXT,message)
+
+        try{
+            startActivity(Intent.createChooser(intent,"Choose Gmail"))
+        }  catch (e: Exception){
+             Toast.makeText(requireContext(), "Exception", Toast.LENGTH_LONG).show()
+        }
+
+
     }
 
     companion object {

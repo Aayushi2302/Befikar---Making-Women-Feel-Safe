@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EducateCard1"
+    android:background="@color/white">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scrollView1">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Educate yourself"
+            app:navigationIcon="@drawable/back"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:layout_margin="10dp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="1.Memorize the vulnerable Places"
+               android:textColor="@color/black"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginTop="15dp"/>
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="220dp"
+               android:src="@drawable/scrollview1a"
+               android:scaleType="fitXY"
+               android:layout_margin="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/text1"
+               android:textColor="@color/grey"
+               android:textSize="18sp"
+               android:layout_marginTop="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="2.Effective Moves"
+               android:textColor="@color/black"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginTop="15dp"/>
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="220dp"
+               android:src="@drawable/scrollview1b"
+               android:scaleType="fitXY"
+               android:layout_margin="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/text2"
+               android:textColor="@color/grey"
+               android:textSize="18sp"
+               android:layout_marginTop="15dp"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="3.Kicking Groin"
+               android:textColor="@color/black"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginTop="15dp"/>
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="220dp"
+               android:src="@drawable/scrollview1c"
+               android:scaleType="fitXY"
+               android:layout_margin="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/text3"
+               android:textColor="@color/grey"
+               android:textSize="18sp"
+               android:layout_marginTop="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="4.If you were grabbed from front"
+               android:textColor="@color/black"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginTop="15dp"/>
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="220dp"
+               android:src="@drawable/scrollview1d"
+               android:scaleType="fitXY"
+               android:layout_margin="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/text4"
+               android:textColor="@color/grey"
+               android:textSize="18sp"
+               android:layout_marginTop="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="5.How to free your hands"
+               android:textColor="@color/black"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginTop="15dp"/>
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="220dp"
+               android:src="@drawable/scrollview1e"
+               android:scaleType="fitXY"
+               android:layout_margin="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/text5"
+               android:textColor="@color/grey"
+               android:textSize="18sp"
+               android:layout_marginTop="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="6.If you were grabbed from behind"
+               android:textColor="@color/black"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginTop="15dp"/>
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="220dp"
+               android:src="@drawable/scrollview1f"
+               android:scaleType="fitXY"
+               android:layout_margin="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/text6"
+               android:textColor="@color/grey"
+               android:textSize="18sp"
+               android:layout_marginTop="15dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="7.If you were approached and grabbed from the side"
+               android:textColor="@color/black"
+               android:textSize="20sp"
+               android:textStyle="bold"
+               android:layout_marginTop="15dp"/>
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="220dp"
+               android:src="@drawable/scrollview1g"
+               android:scaleType="fitXY"
+               android:layout_margin="15dp" />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/text7"
+               android:textColor="@color/grey"
+               android:textSize="18sp"
+               android:layout_marginTop="15dp"/>
+       </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

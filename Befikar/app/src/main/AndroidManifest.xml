@@ -14,8 +14,18 @@
         android:theme="@style/Theme.Befikar"
         tools:targetApi="31">
         <activity
+<<<<<<< Updated upstream
             android:name=".MainTask1"
             android:parentActivityName=".Home"
+=======
+            android:name=".EducateCard2"
+            android:exported="false" />
+        <activity
+            android:name=".EducateCard1"
+            android:exported="false" />
+        <activity
+            android:name=".MainTask3"
+>>>>>>> Stashed changes
             android:exported="false" />
         <activity
             android:name=".ResetPassword"
