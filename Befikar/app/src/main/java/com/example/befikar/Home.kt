@@ -35,8 +35,12 @@ class Home : AppCompatActivity() {
         callHelpline2()
 <<<<<<< Updated upstream
         callMainTask1()
+<<<<<<< Updated upstream
 =======
         callmainTask3()
+>>>>>>> Stashed changes
+=======
+        callMainTask2()
 >>>>>>> Stashed changes
 
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
@@ -152,6 +156,15 @@ class Home : AppCompatActivity() {
         val mainTask1 : CardView = findViewById(R.id.mainTask1)
         mainTask1.setOnClickListener {
             val intent = Intent(applicationContext,MainTask1::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun callMainTask2(){
+
+        val mainTask2 : CardView = findViewById(R.id.mainTask2)
+        mainTask2.setOnClickListener {
+            val intent = Intent(applicationContext,MainTask2::class.java)
             startActivity(intent)
         }
     }

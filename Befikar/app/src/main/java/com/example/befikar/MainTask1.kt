@@ -8,7 +8,13 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
 import android.widget.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 import com.google.protobuf.MapEntryLite
 import kotlinx.android.synthetic.main.activity_main_task1.*
 import java.io.File
@@ -22,9 +28,8 @@ class MainTask1 : AppCompatActivity() {
     lateinit var contactList : ArrayList<HashMap<String,String>>
     lateinit var adapter : SimpleAdapter
 
-
-   /* val path : File = applicationContext.filesDir
-    private val writer = FileOutputStream(File(path,"emergencyContacts.txt"))*/
+    private var db = Firebase.firestore
+    val userId = FirebaseAuth.getInstance().currentUser!!.uid
 
 
     @SuppressLint("RestrictedApi")
@@ -37,7 +42,7 @@ class MainTask1 : AppCompatActivity() {
         temporary = HashMap()
         contactList = ArrayList()
         adapter = SimpleAdapter(this,contactList,R.layout.list_item,
-        arrayOf("First Line","Second Line"),intArrayOf(R.id.contactName,R.id.contactNumber))
+        arrayOf("Name","Number"),intArrayOf(R.id.contactName,R.id.contactNumber))
 
 
         /*setSupportActionBar(appBarMainTask1)
@@ -50,7 +55,7 @@ class MainTask1 : AppCompatActivity() {
             startActivityForResult(i, 111)
         }
 
-
+        //loadEmergencyContacts()
 
     }
 
@@ -63,8 +68,7 @@ class MainTask1 : AppCompatActivity() {
                                                 ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
             var rs = contentResolver.query(contacturi,cols,null,null,null)
             if(rs?.moveToFirst()!!){
-                /*Toast.makeText(this,rs.getString(0),Toast.LENGTH_SHORT).show()
-                Toast.makeText(this,rs.getString(1),Toast.LENGTH_SHORT).show()*/
+
                 temporary.put(rs.getString(1),rs.getString(0))
 
                  val itr  = temporary.iterator()
@@ -73,13 +77,14 @@ class MainTask1 : AppCompatActivity() {
                     val resultMap : HashMap<String,String> = HashMap()
                     val pair : Map.Entry<String,String> = itr.next()
 
-                    resultMap.put("First Line", pair.key)
-                    resultMap.put("Second Line", pair.value)
+                    resultMap.put("Name", pair.key)
+                    resultMap.put("Number", pair.value)
                     if(contactList.size < 5){
                         contactList.add(resultMap)
-                        //storeInFile(pair)
+                        storeEmergencyContacts()
+
                     }else{
-                        //writer.close()
+
                         Toast.makeText(this,"Cannot add more then 5 emergency contacts",Toast.LENGTH_SHORT).show()
                     }
 
@@ -91,32 +96,43 @@ class MainTask1 : AppCompatActivity() {
         }
     }
 
-    /*override fun onDestroy() {
-        val path : File = applicationContext.filesDir
-        try{
-            val writer = FileOutputStream(File(path,"emergencyContacts.txt"))
-            val iterator  = contactList.iterator()
-            while(iterator.hasNext()){
-                val tempMap : HashMap<String,String> = iterator.next()
+    private fun storeEmergencyContacts(){
 
+        val userMap = hashMapOf(
+            "emergency contacts" to contactList
+        )
+        db.collection("emergency").document(userId).set(userMap)
+            .addOnSuccessListener {
+                Toast.makeText(this,"Successfully data added!!",Toast.LENGTH_SHORT).show()
             }
-            writer.close()
-
-        }catch(exp : Exception){
-            exp.printStackTrace()
-        }
-        super.onDestroy()
-    }*/
-
-    /*private fun storeInFile(pair : Map.Entry<String,String>){
-        val item = pair.key + ":" + pair.value
-        writer.write(item.toByteArray())
+            .addOnFailureListener{
+                Toast.makeText(this,"Failed to store data!!",Toast.LENGTH_SHORT).show()
+            }
     }
 
-    fun loadContent(){
-        val readFrom : File = File(path,"emergencyContacts.txt")
-        val content = ByteArray(readFrom)
+    /*private fun loadEmergencyContacts(){
+
+        var ItemList = ArrayList<HashMap<String,String>>()
+        //val result = HashMap<String,String>()
+        val ref = db.collection("emergency").document(userId)
+        ref.get().addOnCompleteListener{ task->
+
+            if(task.isSuccessful){
+                val document = task.result
+                if(document.exists()){
+                    ItemList = document.get("emergency contacts") as ArrayList<HashMap<String, String>>
+                }
+            }
+
+            contactList = ItemList
+            listView.adapter = adapter
+        }
+            .addOnFailureListener{
+                Toast.makeText(this,"Add Emergency Contact",Toast.LENGTH_SHORT).show()
+            }
+
     }*/
+
 
     /*override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
