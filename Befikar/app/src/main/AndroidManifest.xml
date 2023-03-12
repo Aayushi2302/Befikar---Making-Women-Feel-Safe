@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.befikar">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Befikar"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Demo"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -41,12 +43,11 @@
         <activity
             android:name=".MainTask2"
             android:exported="false"
-            android:parentActivityName=".Home"/>
+            android:parentActivityName=".Home" />
         <activity
             android:name=".MainTask3"
             android:exported="false"
-            android:parentActivityName=".Home"/>
-
+            android:parentActivityName=".Home" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
@@ -56,15 +57,12 @@
         <activity
             android:name=".ResetPassword"
             android:exported="false" />
-
         <activity
             android:name=".EducateCard1"
             android:exported="false" />
         <activity
             android:name=".EducateCard2"
             android:exported="false" />
-
-
 
         <meta-data
             android:name="preloaded_fonts"

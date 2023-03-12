@@ -17,6 +17,7 @@
             android:id="@+id/appBarMainTask1"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/white"
             app:title="Add Emergency Contacts"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
 
@@ -29,10 +30,14 @@
         android:padding="15dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/appBarLayoutMainTask1"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="35dp"
+        android:textColor="@color/white"
         android:text="Add Contacts"
         android:textSize="18sp"
+        app:iconTint="@color/white"
         app:icon="@drawable/addicon"
+        android:backgroundTint="@color/mainColor"
         style="@style/Widget.MaterialComponents.Button"/>
     
     <ListView
