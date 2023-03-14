@@ -5,13 +5,9 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -20,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_home.appBar
 
 class Home : AppCompatActivity() {
 
@@ -34,7 +31,7 @@ class Home : AppCompatActivity() {
         callHelpline1()
         callHelpline2()
         callMainTask1()
-        callmainTask3()
+        callMainTask3()
         callMainTask2()
 
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
@@ -56,10 +53,9 @@ class Home : AppCompatActivity() {
                 Toast.makeText(this,"Failed to fetch data",Toast.LENGTH_SHORT).show()
             }
 
-
     }
 
-    private fun callmainTask3() {
+    private fun callMainTask3() {
         val mainTask3 : CardView = findViewById(R.id.mainTask3)
 
         mainTask3.setOnClickListener {
@@ -90,7 +86,6 @@ class Home : AppCompatActivity() {
                     val intent = Intent(applicationContext,Home::class.java)
                     startActivity(intent)
                 }
-                R.id.operation ->  replaceFragment(OperationFragment())
                 R.id.aboutus -> replaceFragment(AboutFragment())
                 R.id.logout -> {
                     FirebaseAuth.getInstance().signOut()
@@ -159,5 +154,9 @@ class Home : AppCompatActivity() {
             val intent = Intent(applicationContext,MainTask2::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onBackPressed() {
+        finishAffinity()
     }
 }

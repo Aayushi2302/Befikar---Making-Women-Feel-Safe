@@ -1,55 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
     tools:context=".MainTask1">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayoutMainTask1"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/appBarMainTask1"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayoutMainTask1"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:titleTextColor="@color/white"
-            app:title="Add Emergency Contacts"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
+            android:layout_height="wrap_content">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/appBarMainTask1"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:titleTextColor="@color/white"
+                app:navigationIcon="@drawable/back"
+                app:navigationIconTint="@color/white"
+                app:title="Add Emergency Contacts"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/addContacts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/appBarLayoutMainTask1"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="35dp"
-        android:textColor="@color/white"
-        android:text="Add Contacts"
-        android:textSize="18sp"
-        app:iconTint="@color/white"
-        app:icon="@drawable/addicon"
-        android:backgroundTint="@color/mainColor"
-        style="@style/Widget.MaterialComponents.Button"/>
-    
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="25dp"
-        android:layout_below = "@id/addContacts" />
+        </com.google.android.material.appbar.AppBarLayout>
 
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/addContacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/appBarLayoutMainTask1"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="35dp"
+            android:textColor="@color/white"
+            android:elevation="25dp"
+            android:text="Add Contacts"
+            android:textSize="18sp"
+            app:iconTint="@color/white"
+            app:icon="@drawable/addicon"
+            android:backgroundTint="@color/mainColor"
+            style="@style/Widget.MaterialComponents.Button"/>
 
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginTop="25dp"
+            android:layout_below = "@id/addContacts" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/listView"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/deleteText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1.3"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:background="@color/callHelpline2"
+                android:textColorHint="@color/grey"
+                android:hint="Enter Mobile Number"
+                android:padding="10dp"
+                android:textColor="@color/mainColor"
+                android:textSize="15sp" />
 
-
-</RelativeLayout>
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/deleteBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/mainColor"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:clickable="false"
+                android:text="Delete"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

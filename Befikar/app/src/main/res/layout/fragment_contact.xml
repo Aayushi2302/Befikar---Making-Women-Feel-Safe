@@ -1,14 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ContactFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ContactFragment"
+    android:background="@color/white">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/contactUsImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/contact_background"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/contactText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/contactUsImage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Contact us"
+        android:textColor="@color/mainColor"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        />
+
+    <ImageView
+        android:id="@+id/emailIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toBottomOf="@id/contactText"
+        android:src="@drawable/email_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"/>
+
+    <ImageView
+        android:id="@+id/phonIcon1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toBottomOf="@id/emailIcon"
+        android:src="@drawable/phone_icon"
+        app:layout_constraintStart_toStartOf="@id/emailIcon"
+        android:layout_marginTop="25dp"/>
+
+    <ImageView
+        android:id="@+id/phonIcon2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toBottomOf="@id/phonIcon1"
+        android:src="@drawable/phone_icon"
+        app:layout_constraintStart_toStartOf="@id/phonIcon1"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/emailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/contactText"
+        app:layout_constraintStart_toEndOf="@id/emailIcon"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="20dp"
+        android:text="befikarofficial2023"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/phoneNumber1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/emailIcon"
+        app:layout_constraintStart_toEndOf="@id/phonIcon1"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"
+        android:text="+918290441402"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/phoneNumber2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/phonIcon1"
+        app:layout_constraintStart_toEndOf="@id/phonIcon2"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"
+        android:text="+916377130804"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Copyright ©2023 Befikar - Making Women Feel Safe\n
+Inc. All rights are reserved."
+        android:textColor="@color/grey"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="15sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

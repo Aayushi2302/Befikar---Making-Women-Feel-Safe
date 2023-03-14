@@ -7,51 +7,109 @@
     android:background="@color/white"
     tools:context=".MainTask2">
 
-    <LinearLayout
-        android:id="@+id/currentLocation"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayoutMainTask2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/sendCurrentLocation"
-        android:orientation="vertical"
-        android:gravity="center">
+        >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/appBarMainTask2"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Share Your Current Location"
+            app:navigationIcon="@drawable/back"
+            app:navigationIconTint="@color/white"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/stopMessage"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:backgroundTint="@color/cardView1"
+        android:text="Stop"
+        android:textStyle="bold"
+        android:elevation="250dp"
+        android:textSize="50sp"
+        android:textColor="@color/mainColor"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayoutMainTask2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:weightSum="2"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/callHelpline1">
+
+
+        <TextView
+            android:id="@+id/latitudeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Latitude"
+            android:textColor="@color/mainColor"
+            android:layout_weight="1"
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/latitude"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Latitude"
-            android:textSize="25sp"/>
-
-        <TextView
-            android:id="@+id/longitude"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Longitude"
-            android:textSize="25sp"/>
-
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text=""
+            android:textColor="@color/mainColor"
+            android:layout_weight="1"
+            android:padding="10dp"/>
     </LinearLayout>
 
-    <Button
-    android:id="@+id/sendCurrentLocation"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Send Current Location"
-    app:layout_constraintTop_toBottomOf="@id/currentLocation"
-    app:layout_constraintBottom_toTopOf="@id/stopMessage"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/stopMessage"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send Current Location"
-        app:layout_constraintTop_toBottomOf="@id/sendCurrentLocation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:weightSum="2"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/callHelpline1">
+        <TextView
+            android:id="@+id/longitudeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Longitude"
+            android:textColor="@color/mainColor"
+            android:layout_weight="1"
+            android:padding="10dp"/>
+        <TextView
+            android:id="@+id/longitude"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text=""
+            android:layout_weight="1"
+            android:textColor="@color/mainColor"
+            android:padding="10dp"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_register.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -36,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
                         val intent = Intent(this,Home::class.java)
                         startActivity(intent)
                     }else{
-                        Toast.makeText(this,it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"Unable to login", Toast.LENGTH_SHORT).show()
                     }
                 }
             }else{

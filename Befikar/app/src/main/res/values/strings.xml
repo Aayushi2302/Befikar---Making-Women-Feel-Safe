@@ -5,7 +5,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="text1">It doesnt matter how big or heavy your attacker is because you can beat anyone if you know where the most vulnerable spots are. The main ones are the eyes, nose, throat, chest, knees, and groin.</string>
+    <string name="text1">It doesn\'t matter how big or heavy your attacker is because you can beat anyone if you know where the most vulnerable spots are. The main ones are the eyes, nose, throat, chest, knees, and groin. </string>
     <string name="text2">Grab his little finger and his ring finger with one hand, and his middle and index finger with the other and bend the wrist forward.\nIf you cant grab your opponent hand, hit him with a fist or with a finger between the collarbones or into his Adam apple.</string>
     <string name="text3">The most obvious area for an attack is the groin. All self-defense courses advise aiming for this area.Hitting this area will literally paralyze the attacker and you will have just enough time to escape.</string>
     <string name="text4">If you were grabbed from the front and you cant lift your hands, do the following: move your hands forward and make a fist in front of your pelvis. This will create enough room between you and the attacker.\n After that, hit the attacker nose with your forehead. This will make the attacker move away from you. Now hit him in the groin with your knee.</string>
@@ -18,6 +18,13 @@
     <string name="text24">The most multi faceted tool, the Swiss Knife is famous for being an all-in-one survival kit. Right from having a corkscrew, tweezer, scissor to screwdrivers, it is very handy. The best part is, it has many blades and pointed extensions that can seriously injure someone</string>
     <string name="text25">It is always recommended to share your locations using your phone application, but in any event your phone cannot send your location in that case a GPS tracker is very handy solution for you.</string>
     <string name="text26">Nothing spooks an assualter more than a deafening, loud, whistle that can attract attention to his act. Whistles can be as small as a thumb and must be carried by all women.</string>
+    <string name="url1">Buy this at \: https://amzn.eu/d/5EhbjYm</string>
+    <string name="url2">Buy this at \: https://amzn.eu/d/4cXDtuC</string>
+    <string name="url3">Buy this at \: https://amzn.eu/d/69q35QV</string>
+    <string name="url4">Buy this at \: https://amzn.eu/d/c1xEeQ9</string>
+    <string name="url5">Buy this at \: https://amzn.eu/d/dEPiImV</string>
+    <string name="url6">Buy this at \: https://amzn.eu/d/c7RgjVW</string>
+
 
     <string name="about_intro">Befikar App aims to provide a befikar attitude for women and their closed one making women self conscious about their own safety where in any situation where she feels its not safe around her emergency contacts will get notified with her location at that moment itself.</string>
 

@@ -1,5 +1,6 @@
 package com.example.befikar
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -46,31 +47,30 @@ class FeedbackFragment : Fragment() {
         val sendButton : Button = root.findViewById(R.id.sendButton)
 
         sendButton.setOnClickListener {
-            val recipient = "sharmaaayushi2302@gmail.com"
-            val subject = "Feedback for Befikar app"
-            val message = feedbackData.text.toString()
+            if (feedbackData.text.toString().isNotEmpty()) {
+                val recipient = "befikarofficial2023@gmail.com"
+                val subject = "Feedback for Befikar app"
+                val message = feedbackData.text.toString()
 
-            sendEmail(recipient,subject,message)
+                sendEmail(recipient, subject, message)
+            } else {
+                Toast.makeText(requireContext(), "Enter feedback", Toast.LENGTH_SHORT).show()
+            }
         }
         return root
     }
 
     private fun sendEmail(recipient: String, subject: String, message: String) {
 
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.data = Uri.parse("mailto:")
-        intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_EMAIL,arrayOf(recipient))
-        intent.putExtra(Intent.EXTRA_SUBJECT,subject)
-        intent.putExtra(Intent.EXTRA_TEXT,message)
-
-        try{
-            startActivity(Intent.createChooser(intent,"Choose Gmail"))
-        }  catch (e: Exception){
-             Toast.makeText(requireContext(), "Exception", Toast.LENGTH_LONG).show()
+        try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:"))
+            intent.putExtra(Intent.EXTRA_EMAIL,arrayOf(recipient))
+            intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+            intent.putExtra(Intent.EXTRA_TEXT, message)
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(requireContext(), "Exception", Toast.LENGTH_SHORT).show()
         }
-
-
     }
 
     companion object {

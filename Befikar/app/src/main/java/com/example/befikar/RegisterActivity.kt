@@ -7,7 +7,6 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -34,32 +33,51 @@ class RegisterActivity : AppCompatActivity() {
 
             if(email.isNotEmpty() && name.isNotEmpty() && pwd.isNotEmpty() && phone.isNotEmpty())
             {
-                firebaseAuth.createUserWithEmailAndPassword(email,pwd).addOnCompleteListener{
+                if(phone.length == 10) {
+                    if(email.contains("@gmail.com")) {
+                        firebaseAuth.createUserWithEmailAndPassword(email, pwd)
+                            .addOnCompleteListener {
 
-                    if(it.isSuccessful){
+                                if (it.isSuccessful) {
 
-                        val userMap = hashMapOf(
-                            "name" to name,
-                            "phone" to phone,
-                            "email" to email,
-                            "password" to pwd
-                            )
+                                    val userMap = hashMapOf(
+                                        "name" to name,
+                                        "phone" to phone,
+                                        "email" to email,
+                                        "password" to pwd
+                                    )
 
-                        val uid = firebaseAuth.currentUser?.uid.toString()
-                        db.collection("user").document(uid).set(userMap)
-                            .addOnSuccessListener {
-                                Toast.makeText(this,"Sucessfully data added!!",Toast.LENGTH_SHORT).show()
+                                    val uid = firebaseAuth.currentUser?.uid.toString()
+                                    db.collection("user").document(uid).set(userMap)
+                                        .addOnSuccessListener {
+                                            Toast.makeText(
+                                                this,
+                                                "Sucessfully data added!!",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                        .addOnFailureListener {
+                                            Toast.makeText(
+                                                this,
+                                                "Failed to store data!!",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+
+                                    val intent = Intent(this, LoginActivity::class.java)
+                                    startActivity(intent)
+                                } else {
+                                    Toast.makeText(this, "Unable to Register!!", Toast.LENGTH_SHORT)
+                                        .show()
+                                }
                             }
-                            .addOnFailureListener{
-                                Toast.makeText(this,"Failed to store data!!",Toast.LENGTH_SHORT).show()
-                            }
-
-                        val intent = Intent(this,LoginActivity::class.java)
-                        startActivity(intent)
                     }else{
-                        Toast.makeText(this,it.exception.toString(),Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"Enter valid email!!",Toast.LENGTH_SHORT).show()
                     }
+                }else{
+                    Toast.makeText(this,"Enter valid number!!",Toast.LENGTH_SHORT).show()
                 }
+
             }else{
                 Toast.makeText(this,"Empty Fields  is not allowed", Toast.LENGTH_SHORT).show()
             }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,19 +8,17 @@
     android:background="@color/white">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+        android:id="@+id/appBarLayoutEducate2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/scrollView2">
+        android:layout_height="wrap_content">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/appBar"
+        android:id="@+id/appBarEducate2"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Educate yourself"
+        app:title="Important Things to Carry"
+        app:titleTextColor="@color/white"
+        app:navigationIconTint="@color/white"
         app:navigationIcon="@drawable/back"
         style="@style/Widget.MaterialComponents.Toolbar.Primary" />
 
@@ -29,13 +27,12 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        android:layout_marginBottom="25dp"
+        android:layout_below="@id/appBarLayoutEducate2">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="10dp">
 
@@ -57,6 +54,16 @@
                 android:layout_marginTop="15dp"/>
 
             <TextView
+                android:id="@+id/pepperSpray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/url1"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"/>
+
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2.A Sharp Pencil"
@@ -72,6 +79,15 @@
                 android:textColor="@color/grey"
                 android:textSize="18sp"
                 android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/sharpPencil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/url2"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,6 +107,15 @@
                 android:layout_marginTop="15dp"/>
 
             <TextView
+                android:id="@+id/taser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/url3"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4.Swiss Knife"
@@ -108,6 +133,15 @@
                 android:layout_marginTop="15dp"/>
 
             <TextView
+                android:id="@+id/swissKnife"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/url4"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5.GPS Tracker"
@@ -123,6 +157,15 @@
                 android:textColor="@color/grey"
                 android:textSize="18sp"
                 android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/gpsTracker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/url5"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"/>
 
 
             <TextView
@@ -142,8 +185,16 @@
                 android:textSize="18sp"
                 android:layout_marginTop="15dp"/>
 
+            <TextView
+                android:id="@+id/whistle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/url6"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"/>
+
         </LinearLayout>
-
     </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

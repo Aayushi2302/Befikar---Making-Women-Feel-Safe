@@ -26,8 +26,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:title="@string/app_name"
+                app:titleTextColor="@color/white"
+                app:navigationIconTint="@color/white"
                 app:navigationIcon="@drawable/hamburger"
-                style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -69,7 +71,7 @@
                    android:textAllCaps="false"
                    android:layout_margin="8dp"
                    android:textSize="18sp"
-                   android:padding="4dp"
+                   android:padding="3dp"
                    android:backgroundTint="@color/callHelpline1"
                    android:textColor="@color/mainColor">
                </Button>
@@ -82,7 +84,7 @@
                    android:textAllCaps="false"
                    android:layout_margin="8dp"
                    android:textSize="18sp"
-                   android:padding="4dp"
+                   android:padding="3dp"
                    android:backgroundTint="@color/callHelpline2"
                    android:textColor="@color/mainColor">
                </Button>
@@ -185,7 +187,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:text="Educating Yourself about Self Defence"
+                        android:text="Educating Yourself About Self Defense"
                         android:textColor="@color/mainColor"
                         android:textSize="21sp"
                         android:textStyle="bold"
@@ -207,11 +209,15 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"
+        android:background="@color/callHelpline1"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:headerLayout="@layout/nav_header"
+        app:itemTextColor="@color/mainColor"
+        app:itemIconTint="@color/mainColor"
         app:menu="@menu/nav_menu"
         android:layout_gravity="start"
+        android:theme="@style/ThemeOverlay.titleColor"
         android:fitsSystemWindows="true"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

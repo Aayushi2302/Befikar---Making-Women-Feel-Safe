@@ -3,46 +3,28 @@ package com.example.befikar
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
-import android.database.Cursor
-import android.icu.text.Bidi.invertMap
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.util.Log
 import android.widget.*
-import androidx.core.view.size
-import com.google.android.gms.common.util.MapUtils
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import com.google.protobuf.MapEntryLite
 import kotlinx.android.synthetic.main.activity_main_task1.*
-import kotlinx.android.synthetic.main.list_item.*
-import java.io.File
-import java.io.FileOutputStream
 
 class MainTask1 : AppCompatActivity() {
 
     lateinit var listView : ListView
-    lateinit var addContactsBtn : Button
     lateinit var temporary : HashMap<String,String>
     lateinit var contactList : ArrayList<HashMap<String,String>>
     lateinit var tmpList : ArrayList<HashMap<String,String>>
-    lateinit var adapter : SimpleAdapter
     lateinit var sampleAdadpter : SimpleAdapter
-
-
-
 
     private var db = Firebase.firestore
     val userId = FirebaseAuth.getInstance().currentUser!!.uid
-
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,19 +32,9 @@ class MainTask1 : AppCompatActivity() {
         setContentView(R.layout.activity_main_task1)
 
         listView = findViewById(R.id.listView)
-        addContactsBtn = findViewById(R.id.addContacts)
         temporary = HashMap()
         contactList = ArrayList()
         tmpList = ArrayList()
-        adapter = SimpleAdapter(this,contactList,R.layout.list_item,
-        arrayOf("Name","Number"),intArrayOf(R.id.contactName,R.id.contactNumber))
-
-
-
-
-        /*setSupportActionBar(appBarMainTask1)
-        supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)*/
 
         loadEmergencyContacts()
 
@@ -75,13 +47,43 @@ class MainTask1 : AppCompatActivity() {
             else{
                 Toast.makeText(this,"Cannot add more than 3 emergency contacts",Toast.LENGTH_SHORT).show()
             }
-
         }
 
-     
+        deleteBtn.setOnClickListener{
+            if(tmpList.isEmpty()){
+                Toast.makeText(this,"No entries to delete",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if(deleteText.text?.length == 10)
+            {
+                val str : String = deleteText.text.toString()
+                for(element in tmpList){
 
+                    for(ele in element){
+
+                        if(ele.value == str){
+                            val index = tmpList.indexOf(element)
+                            val deleteContact = db.collection("emergency").document(userId)
+                            deleteContact.update("emergency contacts",FieldValue.arrayRemove(tmpList.get(index)))
+                            loadEmergencyContacts()
+                            Toast.makeText(this,"Contact Deleted Successfully",Toast.LENGTH_SHORT).show()
+
+                        }
+                    }
+                }
+            }else{
+                Toast.makeText(this,"Enter Valid Number",Toast.LENGTH_SHORT).show()
+            }
+            deleteText.text = null
+        }
+
+        setSupportActionBar(appBarMainTask1)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            appBarMainTask1.setNavigationOnClickListener {
+                finish()
+            }
+        }
     }
-
 
     private fun loadEmergencyContacts() {
         val rootRef : FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -95,12 +97,10 @@ class MainTask1 : AppCompatActivity() {
 
                 if(document.exists())
                 {
-
                     tmpList = document.get("emergency contacts") as ArrayList<HashMap<String, String>>
                     contactList = ArrayList()
                     sampleAdadpter = SimpleAdapter(this,contactList,R.layout.list_item,arrayOf("Number","Name"),
                         intArrayOf(R.id.contactNumber,R.id.contactName))
-
 
                     for(element in tmpList){
                         val resultMap : HashMap<String,String> = HashMap()
@@ -113,10 +113,7 @@ class MainTask1 : AppCompatActivity() {
                 }
             }
         }
-
-
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -130,7 +127,29 @@ class MainTask1 : AppCompatActivity() {
 
                 temporary.put(rs.getString(1),rs.getString(0))
 
-                 val itr  = temporary.iterator()
+                var str : String = rs.getString(0)
+                str = str.replace(" ","")
+                if(str[0] == '+'){
+                    str = str.substring(3)
+                    temporary.set(rs.getString(1),str)
+                }
+                else if(str.length > 10){
+                    Toast.makeText(this,"Enter 10 digits number only",Toast.LENGTH_SHORT).show()
+                    return
+                }
+                for(element in tmpList){
+                    for(ele in element){
+                        if(ele.value == str){
+                            Toast.makeText(this,"This number is already added",Toast.LENGTH_SHORT).show()
+                            return
+                        }
+
+                    }
+                }
+                
+                //TODO : Add the check for special character in mobile number
+
+                val itr  = temporary.iterator()
                 while(itr.hasNext()){
 
                     val resultMap : HashMap<String,String> = HashMap()
@@ -145,7 +164,7 @@ class MainTask1 : AppCompatActivity() {
 
                 }
                 temporary.clear()
-                listView.adapter = adapter
+                listView.adapter = sampleAdadpter
 
             }
         }
@@ -158,22 +177,11 @@ class MainTask1 : AppCompatActivity() {
         )
         db.collection("emergency").document(userId).set(userMap)
             .addOnSuccessListener {
-                Toast.makeText(this,"Successfully data added!!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Contact added successfully",Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener{
-                Toast.makeText(this,"Failed to store data!!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Failed to store contact",Toast.LENGTH_SHORT).show()
             }
     }
-
-
-
-
-    /*override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-
-        return super.onSupportNavigateUp()
-    }*/
-
 
 }
